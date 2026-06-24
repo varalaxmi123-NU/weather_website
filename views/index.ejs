@@ -17,22 +17,48 @@
         </form>
 
         <% if(typeof error !=='undefined' ){ %>
-            <h3><%= error %></h3>
-        <% } %>
+            <h3>
+                <%= error %>
+            </h3>
+            <% } %>
 
-        <% if(weather){ %>
-            <div class="weather-card">
-                
-                <h2><%= weather.name %></h2>
-                <h3><%= weather.sys.country %></h3>
-                <img src="https://openweathermap.org/img/wn/<%=weather.weather[0].icon %>@2x.png">
-        </div>
-        <h3 class="temp-details"><%= weather.main.temp %> deg C</h3>
-        <h3><%= weather.main.humidity %> deg C</h3>
-         <p><%=weather.weather[0].description %></p>
+                <% if(weather){ %>
+                    <div class="weather-card">
 
-        <% } %>
+                        <h2>
+                            <%= weather.name %>
+                        </h2>
+                        <h3>
+                            <%= weather.sys.country %>
+                        </h3>
+                        <img src="https://openweathermap.org/img/wn/<%=weather.weather[0].icon %>@2x.png">
+                    </div>
+                    <div class="weather-details">
 
+                        <div class="detail-card">
+                            <h4> Temperature</h4>
+                            <h2>
+                                <%= weather.main.temp %>°C
+                            </h2>
+                        </div>
+
+                        <div class="detail-card">
+                            <h4> Humidity</h4>
+                            <h2>
+                                <%= weather.main.humidity %>%
+                            </h2>
+                        </div>
+
+                        <div class="detail-card">
+                            <h4> Condition</h4>
+                            <h3>
+                                <%= weather.weather[0].description %>
+                            </h3>
+                        </div>
+
+                    </div>
+                    <% } %>
     </div>
 </body>
+
 </html>
